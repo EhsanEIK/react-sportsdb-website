@@ -1,8 +1,8 @@
 import React from 'react';
 import './Player.css';
 
-const Player = ({ player }) => {
-    console.log(player)
+const Player = ({ player, handleCart }) => {
+    // console.log(player, handleCart)
     const { strThumb, strPlayer, strNationality, strPosition, strDescriptionEN } = player
     return (
         <div className='player'>
@@ -13,7 +13,7 @@ const Player = ({ player }) => {
                 <p><b><i>Playing Position:</i></b> {strPosition}</p>
                 <p>{strDescriptionEN ? strDescriptionEN.slice(0, 100) + '...' : ''}</p>
             </div>
-            <button className='btn-cart'>
+            <button onClick={() => handleCart(player)} className='btn-cart'>
                 <p>Add to Cart</p>
             </button>
         </div>

@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Players from '../Players/Players';
 import './Body.css';
 
 const Body = () => {
     const [players, setPlayers] = useState([]);
+    const [cart, setCart] = useState([]);
+
     useEffect(() => {
         fetch(`https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=ronaldo`)
             .then(res => res.json())
             .then(data => setPlayers(data.player));
     }, []);
-    // console.log(players)
+
+    const addToCart = (player) => {
+        const newCart = [...cart, player];
+        setCart(newCart)
+    }
+
     return (
         <div>
             <h1>The Sports db</h1>
             <div className='container'>
                 <div className='players-container'>
-                    <Players players={players}></Players>
+                    <Players players={players}
+                        handleCart={addToCart}></Players>
                 </div>
                 <div className='cart-container'>
-                    <h1>Booked Players</h1>
+                    <Cart cart={cart}></Cart>
                 </div>
             </div>
         </div>
