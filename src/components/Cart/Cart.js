@@ -12,7 +12,14 @@ const Cart = ({ cart }) => {
             <h3>Selected Players: {quantity}</h3>
             <ol>
                 {
-                    cart.map(player => <li>{player.strPlayer}</li>)
+                    cart.map(player => {
+                        return (
+                            <li key={player.idPlayer}>
+                                {player.strPlayer}
+                                <span className='player-quantity'>{player.quantity}</span>
+                            </li>
+                        )
+                    })
                 }
             </ol>
         </div>
