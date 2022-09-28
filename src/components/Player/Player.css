@@ -30,11 +30,22 @@
 /* btn-cart style */
 .btn-cart {
     width: 100%;
-    font-size: 15px;
+    font-size: 16px;
     color: white;
-    background-color: blue;
+    background-color: lightseagreen;
     border: 1px solid;
     padding: 2px 20px;
     position: absolute;
     bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-cart:hover {
+    background-color: blue;
+}
+
+.btn-cart p {
+    margin-right: 8px;
 }
