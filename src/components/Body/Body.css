@@ -1,10 +1,18 @@
+/* all players title style */
+.all-players-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
 /* =====================================
             search container style 
 ======================================= */
 .search-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 0;
 }
 
 .search-container input {

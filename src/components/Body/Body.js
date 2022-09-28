@@ -35,7 +35,7 @@ const Body = () => {
         const storedCart = getDataFromDb();
         let newCart = [];
         for (const id in storedCart) {
-            const existPlayer = players.find(player => player.idPlayer === id);
+            const existPlayer = players?.find(player => player.idPlayer === id);
             if (existPlayer) {
                 existPlayer.quantity = storedCart[id];
                 newCart.push(existPlayer);
@@ -46,10 +46,10 @@ const Body = () => {
 
     return (
         <div>
-            <h1>The Sports db</h1>
             <div className='search-container'>
                 <input type="text" onChange={(e) => setSearch(e.target.value)} />
             </div>
+            <h1 className='all-players-title'>All Players</h1>
             <div className='container'>
                 <div className='players-container'>
                     <Players players={players}

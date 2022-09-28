@@ -1,0 +1,9 @@
+/* =====================================
+            warning messsage style 
+======================================= */
+.warning-messsage {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: goldenrod;
+}

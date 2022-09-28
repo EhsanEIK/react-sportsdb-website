@@ -1,15 +1,17 @@
 import React from 'react';
 import Player from '../Player/Player';
+import './Players.css';
 
 const Players = ({ players, handleCart }) => {
     console.log(players)
     return (
         <>
             {
-                players.map(player => <Player
+                players ? players.map(player => <Player
                     key={player.idPlayer}
                     player={player}
                     handleCart={handleCart}></Player>)
+                    : <p className='warning-messsage'>No Data Found</p>
             }
         </>
     );
