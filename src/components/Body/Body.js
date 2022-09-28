@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb } from '../../utilities/fakeDb';
+import { addToDb, getDataFromDb } from '../../utilities/fakeDb';
 import Cart from '../Cart/Cart';
 import Players from '../Players/Players';
 import './Body.css';
@@ -19,6 +19,19 @@ const Body = () => {
         setCart(newCart);
         addToDb(player.idPlayer);
     }
+
+    useEffect(() => {
+        const storedCart = getDataFromDb();
+        let newCart = [];
+        for (const id in storedCart) {
+            const existPlayer = players.find(player => player.idPlayer === id);
+            if (existPlayer) {
+                existPlayer.quantity = storedCart[id];
+                newCart.push(existPlayer);
+            }
+        }
+        setCart(newCart);
+    }, [players]);
 
     return (
         <div>
