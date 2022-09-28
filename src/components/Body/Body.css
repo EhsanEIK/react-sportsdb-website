@@ -1,0 +1,16 @@
+/* =====================================
+            container style 
+======================================= */
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+/* =====================================
+            cart container style 
+======================================= */
+.cart-container {
+    background-color: darkkhaki;
+    color: white;
+    padding: 0 0 0 30px;
+}
