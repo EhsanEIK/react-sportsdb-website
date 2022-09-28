@@ -7,12 +7,13 @@ import './Body.css';
 const Body = () => {
     const [players, setPlayers] = useState([]);
     const [cart, setCart] = useState([]);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
-        fetch(`https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=ronaldo`)
+        fetch(`https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${search}`)
             .then(res => res.json())
             .then(data => setPlayers(data.player));
-    }, []);
+    }, [search]);
 
     const addToCart = (player) => {
         let newCart = [];
@@ -46,6 +47,9 @@ const Body = () => {
     return (
         <div>
             <h1>The Sports db</h1>
+            <div className='search-container'>
+                <input type="text" onChange={(e) => setSearch(e.target.value)} />
+            </div>
             <div className='container'>
                 <div className='players-container'>
                     <Players players={players}

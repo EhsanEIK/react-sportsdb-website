@@ -2,6 +2,7 @@ import React from 'react';
 import Player from '../Player/Player';
 
 const Players = ({ players, handleCart }) => {
+    console.log(players)
     return (
         <>
             {

@@ -13,6 +13,7 @@ const Cart = ({ cart }) => {
             <ol>
                 {
                     cart.map(player => {
+                        console.log(player)
                         return (
                             <li key={player.idPlayer}>
                                 {player.strPlayer}
