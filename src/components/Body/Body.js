@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb } from '../../utilities/fakeDb';
 import Cart from '../Cart/Cart';
 import Players from '../Players/Players';
 import './Body.css';
@@ -15,7 +16,8 @@ const Body = () => {
 
     const addToCart = (player) => {
         const newCart = [...cart, player];
-        setCart(newCart)
+        setCart(newCart);
+        addToDb(player.idPlayer);
     }
 
     return (
