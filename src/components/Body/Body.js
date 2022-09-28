@@ -15,7 +15,17 @@ const Body = () => {
     }, []);
 
     const addToCart = (player) => {
-        const newCart = [...cart, player];
+        let newCart = [];
+        const exists = cart.find(p => p.idPlayer === player.idPlayer);
+        if (!exists) {
+            player['quantity'] = 1;
+            newCart = [...cart, player];
+        }
+        else {
+            const rest = cart.filter(p => p.idPlayer !== exists.idPlayer);
+            exists.quantity = player.quantity + 1;
+            newCart = [...rest, exists];
+        }
         setCart(newCart);
         addToDb(player.idPlayer);
     }
